@@ -62,8 +62,10 @@ Result should be [
   { firstname: "Ada", lastname: "Lovelace", fullname: "Ada Lovelace" },
 ]
 ------------------*/
-// const fullobjects = // your code here
-// console.log(fullobjects);
+const fullobjects = people.map((name) => {
+    return 
+})
+console.log(fullobjects);
 /*------------------
 2.5)
 Use the map function to create an array with values "true" or "false"
@@ -72,8 +74,10 @@ Test case:
 [3, 7, 24, 1, 66, 89, 88, 23, 54, 54, 12, 9] to [false, false, true, false, true, false, true, false, true, true, true, false]
 ------------------*/
 const numbers = [3, 7, 24, 1, 66, 89, 88, 23, 54, 54, 12, 9];
-// const areEven = // your code here
-// console.log(areEven);
+const areEven = numbers.map((num) => {
+    return num % 2 === 0 ? true : false;
+});
+console.log(areEven);
 /*------------------
 2.6)
 Use the map function to create an array with values "true" or "false"
