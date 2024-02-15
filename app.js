@@ -4,11 +4,11 @@ forEach method to add all of the items
 in the nums array. Use a fat arrow function.
 The code has been started for you.
 ------------------*/
-const nums = [1, 2, 3, 4, 5, 6, 7, 8];
-let sum = 0;
-nums.forEach((e) => {
-  // your code here
-});
+// const nums = [1, 2, 3, 4, 5, 6, 7, 8];
+// let sum = 0;
+// nums.forEach((e) => {
+//   sum+=e;
+// });
 // console.log(sum);
 /*------------------
 2.1)
@@ -17,8 +17,10 @@ every item in the names array to a greeting.
 Test case:
 ["Sofia", "Pedro", "Mia"] to ["Hello, Sofia!", "Hello, Pedro!", "Hello, Mia!"]
 ------------------*/
-const names = ["Sofia", "Pedro", "Mia"];
-// const greetings = // your code here
+// const names = ["Sofia", "Pedro", "Mia"];
+// const greetings = names.map((name) => {
+//     return `Hello, ${name}!`;
+// })
 // console.log(greetings);
 /*------------------
 2.2)
@@ -27,8 +29,8 @@ Write this in the shorter possible way you can.
 Test case:
 ["JavaScript", "Python", "Go"] to ["JavaScript", "Python", "Go"]
 ------------------*/
-const langs = ["JavaScript", "Python", "Go"];
-// const duplicate = // your code here
+// const langs = ["JavaScript", "Python", "Go"];
+// const duplicate = langs.map((lang => {return lang}));
 // console.log(duplicate);
 /*------------------
 2.3)
@@ -41,8 +43,10 @@ const people = [
   { firstname: "Ruth", lastname: "Bader Ginsburg" },
   { firstname: "Ada", lastname: "Lovelace" },
 ];
-// const fullnames = // your code here
-// console.log(fullnames);
+const fullnames = people.map((name) => {
+    return `${name.firstname + ' ' + name.lastname}`
+})
+console.log(fullnames);
 /*------------------
 2.4)
 Use the map method to create a duplicate of objects that contain the original data plus the fullname.
