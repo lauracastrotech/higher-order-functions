@@ -38,15 +38,15 @@ Use the map method to create a duplicate of an array of full names.
 Test case:
 Result should be ["Grace Hopper", "Ruth Bader Ginsburg", "Ada Lovelace"]
 ------------------*/
-const people = [
-  { firstname: "Grace", lastname: "Hopper" },
-  { firstname: "Ruth", lastname: "Bader Ginsburg" },
-  { firstname: "Ada", lastname: "Lovelace" },
-];
-const fullnames = people.map((name) => {
-    return `${name.firstname + ' ' + name.lastname}`
-})
-console.log(fullnames);
+// const people = [
+//   { firstname: "Grace", lastname: "Hopper" },
+//   { firstname: "Ruth", lastname: "Bader Ginsburg" },
+//   { firstname: "Ada", lastname: "Lovelace" },
+// ];
+// const fullnames = people.map((name) => {
+//     return `${name.firstname + ' ' + name.lastname}`
+// })
+// console.log(fullnames);
 /*------------------
 2.4)
 Use the map method to create a duplicate of objects that contain the original data plus the fullname.
@@ -62,10 +62,11 @@ Result should be [
   { firstname: "Ada", lastname: "Lovelace", fullname: "Ada Lovelace" },
 ]
 ------------------*/
-const fullobjects = people.map((name) => {
-    return 
-})
-console.log(fullobjects);
+// const fullobjects = people.map(({firstname, lastname}, index) => {
+//   return {firstname, lastname, fullnames:fullnames[index]};
+// })
+// console.log(fullnames);
+// console.log(fullobjects);
 /*------------------
 2.5)
 Use the map function to create an array with values "true" or "false"
@@ -73,11 +74,9 @@ that indicate if the number in that position is even
 Test case:
 [3, 7, 24, 1, 66, 89, 88, 23, 54, 54, 12, 9] to [false, false, true, false, true, false, true, false, true, true, true, false]
 ------------------*/
-const numbers = [3, 7, 24, 1, 66, 89, 88, 23, 54, 54, 12, 9];
-const areEven = numbers.map((num) => {
-    return num % 2 === 0 ? true : false;
-});
-console.log(areEven);
+// const numbers = [3, 7, 24, 1, 66, 89, 88, 23, 54, 54, 12, 9];
+// const areEven = numbers.map((num) => { return num % 2 === 0 ? true : false;});
+// console.log(areEven);
 /*------------------
 2.6)
 Use the map function to create an array with values "true" or "false"
@@ -85,8 +84,8 @@ that indicate if the number in that position is equal to the position in the arr
 Test case:
 [1,3,2,2,4,13,8,6,8,10,4,12,12] to [false, false, true, false, true, false, false, false, true, false, false, false, true]
 ------------------*/
-const moreNumbers = [1, 3, 2, 2, 4, 13, 8, 6, 8, 10, 4, 12, 12];
-// const areInPosition = // your code here
+// const moreNumbers = [1, 3, 2, 2, 4, 13, 8, 6, 8, 10, 4, 12, 12];
+// const areInPosition = moreNumbers.map((num, index) => num === index ? true:false);
 // console.log(areInPosition);
 /*------------------
 3.1)
@@ -96,7 +95,7 @@ Test case:
 [1, 34, 83, 65, 3, 24, 98] to [1, 34, 3, 24]
 ------------------*/
 const numsList = [1, 34, 83, 65, 3, 24, 98];
-// const smallNums = // your code here
+// const smallNums = numsList.filter((num) => num > 50);
 // console.log(smallNums);
 /*------------------
 3.2)
@@ -105,7 +104,7 @@ number that is even. Use the same array as before, numList
 Test case:
 [1, 34, 83, 65, 3, 24, 98] to [1, 83, 65, 3]
 ------------------*/
-// const evenList = // your code here
+// const evenList = numsList.filter(num => num % 2 === 0)
 // console.log(evenList);
 /*------------------
 3.3)
@@ -114,8 +113,8 @@ than the position they occupy in the array, starting at 0
 Test case:
 [1, 0, 1, 3, 5, 6, 6, 1, 9] to [1, 5, 6, 9]
 ------------------*/
-const moreNums = [1, 0, 1, 3, 5, 6, 6, 1, 9];
-// const indexList = // your code here
+// const moreNums = [1, 0, 1, 3, 5, 6, 6, 1, 9];
+// const indexList = moreNums.filter((num, index) => num > index);
 // console.log(indexList);
 /*------------------
 3.4)
@@ -133,7 +132,9 @@ Test case:
   { firstname: "Ada", lastname: "Lovelace" },
 ]
 ------------------*/
-// const peopleWithA = // your code here
+// const peopleWithA = people.filter((name) => {
+//   return name.firstname.includes('a');
+// });
 // console.log(peopleWithA);
 /*------------------
 4)
@@ -150,14 +151,14 @@ Test case:
 ["deified", "civic", "radar", "level", "rotor"] is true
 ["kayak", "reviver", "racecar", "reader", "madam"] is false
 ------------------*/
-const wordList1 = ["deified", "civic", "radar", "level", "rotor"];
-const wordList2 = ["kayak", "reviver", "racecar", "reader", "madam"];
-function checkPalindromes(list) {
-  return list.every(() => {
-    // add necessary parameters in above
-    // and finish the code in the body here
-  });
-}
+// const wordList1 = ["deified", "civic", "radar", "level", "rotor"];
+// const wordList2 = ["kayak", "reviver", "racecar", "reader", "madam"];
+// function checkPalindromes(list) {
+//   return list.every((word) => {
+//     // add necessary parameters in above
+//     word === word.split('').reverse().join('');
+//   });
+// }
 // console.log(checkPalindromes(wordList1));
 // console.log(checkPalindromes(wordList2));
 /*------------------
@@ -167,12 +168,14 @@ to understand how "reduce" works. Then,
 use reduce to add all the items in the
 numsList (from the previous question) together.
 ------------------*/
-const total = numsList.reduce(() => {
-  // add necessary parameters in above
-  // and finish the code in the body here
-});
+//const numsList = [1, 34, 83, 65, 3, 24, 98];
+// const total = numsList.reduce((numTotal, currentValue) => {
+//   // add necessary parameters in above
+//   // and finish the code in the body here
+//   return numTotal += currentValue;
+// });
 // console.log(total); // should equal 308
-// TO DEEPEN THE LEARNING
+// // TO DEEPEN THE LEARNING
 /*------------------
 6)
 Use the filter method to create an array containing
@@ -182,7 +185,10 @@ starting at position 0
 Test case:
 [1, 34, 83, 65, 3, 24, 98] to [65,98]
 ------------------*/
-// const oddList = // your code here
+// const aNumList = [1, 34, 83, 65, 3, 24, 98]; 
+// const oddList = aNumList.filter((num, index) => {
+//   return (num % 2 === 0 && index % 2 === 0) || (num % 2 !== 0 && index % 2 !== 0)
+// })
 // console.log(oddList);
 /*------------------
 7.1)
@@ -193,8 +199,11 @@ Test case:
 [[20,31,19,18,22],[20,31,16,21,21],[17,31,16,21,21],[18,19,19,20,32]]
 to [[20, 31, 16, 21, 21], [17, 31, 16, 21, 21]]
 ------------------*/
-// let olderTeams = // your code here
-// console.log(olderTeams);
+const teams = [[20,31,19,18,22],[20,31,16,21,21],[17,31,16,21,21],[18,19,19,20,32]];
+let olderTeams = teams.filter(team =>{
+  return team;
+});
+console.log(olderTeams);
 /*------------------
 7.2) Perhaps you used the .length property in the previous exercise.
 Can you repeat the exercise without using .length?
