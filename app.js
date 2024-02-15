@@ -38,15 +38,15 @@ Use the map method to create a duplicate of an array of full names.
 Test case:
 Result should be ["Grace Hopper", "Ruth Bader Ginsburg", "Ada Lovelace"]
 ------------------*/
-// const people = [
-//   { firstname: "Grace", lastname: "Hopper" },
-//   { firstname: "Ruth", lastname: "Bader Ginsburg" },
-//   { firstname: "Ada", lastname: "Lovelace" },
-// ];
-// const fullnames = people.map((name) => {
-//     return `${name.firstname + ' ' + name.lastname}`
-// })
-// console.log(fullnames);
+const people = [
+  { firstname: "Grace", lastname: "Hopper" },
+  { firstname: "Ruth", lastname: "Bader Ginsburg" },
+  { firstname: "Ada", lastname: "Lovelace" },
+];
+const fullnames = people.map((name) => {
+    return `${name.firstname + ' ' + name.lastname}`
+})
+console.log(fullnames);
 /*------------------
 2.4)
 Use the map method to create a duplicate of objects that contain the original data plus the fullname.
@@ -67,6 +67,19 @@ Result should be [
 // })
 // console.log(fullnames);
 // console.log(fullobjects);
+
+// const nameArr =[
+//   { firstname: "Grace", lastname: "Hopper", fullname: "Grace Hopper" },
+//   {
+//     firstname: "Ruth",
+//     lastname: "Bader Ginsburg",
+//     fullname: "Ruth Bader Ginsburg",
+//   },
+//   { firstname: "Ada", lastname: "Lovelace", fullname: "Ada Lovelace" },
+// ]
+
+// const fullobjects = people.map(e=>{
+//   {...e, fullname: `${e.firstname} ${e.lastname}`}); //check omotola solutions
 /*------------------
 2.5)
 Use the map function to create an array with values "true" or "false"
@@ -75,7 +88,7 @@ Test case:
 [3, 7, 24, 1, 66, 89, 88, 23, 54, 54, 12, 9] to [false, false, true, false, true, false, true, false, true, true, true, false]
 ------------------*/
 // const numbers = [3, 7, 24, 1, 66, 89, 88, 23, 54, 54, 12, 9];
-// const areEven = numbers.map((num) => { return num % 2 === 0 ? true : false;});
+// const areEven = numbers.map((num) => {!(num % 2)});
 // console.log(areEven);
 /*------------------
 2.6)
@@ -85,7 +98,7 @@ Test case:
 [1,3,2,2,4,13,8,6,8,10,4,12,12] to [false, false, true, false, true, false, false, false, true, false, false, false, true]
 ------------------*/
 // const moreNumbers = [1, 3, 2, 2, 4, 13, 8, 6, 8, 10, 4, 12, 12];
-// const areInPosition = moreNumbers.map((num, index) => num === index ? true:false);
+// const areInPosition = moreNumbers.map((num, index) => num === index);
 // console.log(areInPosition);
 /*------------------
 3.1)
@@ -199,11 +212,11 @@ Test case:
 [[20,31,19,18,22],[20,31,16,21,21],[17,31,16,21,21],[18,19,19,20,32]]
 to [[20, 31, 16, 21, 21], [17, 31, 16, 21, 21]]
 ------------------*/
-const teams = [[20,31,19,18,22],[20,31,16,21,21],[17,31,16,21,21],[18,19,19,20,32]];
-let olderTeams = teams.filter(team =>{
-  return team;
-});
-console.log(olderTeams);
+// const teams = [[20,31,19,18,22],[20,31,16,21,21],[17,31,16,21,21],[18,19,19,20,32]];
+// let olderTeams = teams.filter((team,index) => {
+//   team[index] > 20;
+// });
+// console.log(olderTeams);
 /*------------------
 7.2) Perhaps you used the .length property in the previous exercise.
 Can you repeat the exercise without using .length?
@@ -238,9 +251,17 @@ element in the array.
 Test cases:
 forEach(["a", "b", "c"], e => {console.log(e)}); // a b c
 ------------------*/
-function forEach(arr, cb) {
-  // your code here
-}
+// const arr = ['a', 'b', 'c'];
+// function forEach(arr, cb) {
+//   // your code here
+//   for(let i = 0; i < arr.length; i++){
+//     console.log(cb(arr[i]));
+//   };
+// }
+// function cb(letter){
+//   return letter + " is a letter";
+// }
+// console.log(forEach(arr,cb));
 /*------------------
 9)
 Create a function named
@@ -256,9 +277,20 @@ of the array passed in as the parameter.
 Test cases:
 console.log(map([5, 6, 7], e => e * 2)); // [10, 12, 14]
 ------------------*/
-function map(arr, cb) {
-  // your code here
-}
+// function map(arr, cb) {
+//   // your code here
+//   let newArr = [];
+//   for(let i = 0; i < arr.length; i++){
+//     newArr.push(cb(arr[i]));
+//   }
+//   return newArr;
+// }
+
+// function cb(num){
+//   return num * 2;
+// }
+
+// console.log(map([5,6,7], cb));
 /*------------------
 10)
 Create a function named
@@ -275,7 +307,14 @@ console.log(filter([5, 6, 7, 8], e => e % 2 === 0 ? true : false)); // [6, 8]
 ------------------*/
 function filter(arr, cb) {
   // your code here
-}
+  let filteredItems = [];
+  for(let i = 0; i < arr.length; i++){
+     if(cb(arr[i])){filteredItems.push(arr[i])};
+   }
+   return filteredItems;
+ }
+
+console.log(filter([5, 6, 7, 8], e => e % 2 === 0 ? true : false));
 /*------------------
 11)
 Create a function named
